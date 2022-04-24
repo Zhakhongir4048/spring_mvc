@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Ask emp details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<style>
+    .b1 {
+        background: green; /* Зелёный цвет фона */
+        color: white; /* Белые буквы */
+        font-size: 15pt; /* Размер шрифта в пунктах */
+    }
+</style>
+
+<style>
+    .b2 {
+        background: white; /* Белый цвет фона */
+        color: green; /* Зелёные буквы */
+        font-size: 15pt; /* Размер шрифта в пунктах */
+    }
+</style>
+
+<style>
+    body {
+        background: url(static/imageJava.png) no-repeat center center fixed;
+        background-size: cover;
+    }
+</style>
+
+<h2>Dear Employee, Please enter your details</h2>
+
+<br>
+<br>
+
+<!--<img src="/static/imageJava.png" width="3840" height="2160" alt="" class="b3">-->
+
+<!--action напрямую связан с кнопкой submit, нажмём на эту кнопку, перейдём в /showDetails-->
+<form th:action="@{showDetails}" th:object="${employee}" method="get">
+    <p>Name: <label>
+        <input type="text" th:field="*{name}" class="b2"/>
+        <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+    </label></p>
+    <p>Surname: <label>
+        <input type="text" th:field="*{surname}" class="b2"/>
+        <td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
+    </label></p>
+    <p>Salary: <label>
+        <input type="text" th:field="*{salary}" class="b2"/>
+        <td th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></td>
+    </label></p>
+    <p>Department: <label>
+        <select th:field="*{department}">
+            <option value="Information Technology" label="IT"></option>
+            <option value="Human Resources" label="HR"></option>
+            <option value="Sales" label="Sales"></option>
+        </select>
+    </label></p>
+    <br>
+    Which car do you want?
+    BMW<label>
+    <input type="radio" th:field="*{carBrand}" th:value="BMW"/>
+</label>
+    Audi<label>
+    <input type="radio" th:field="*{carBrand}" th:value="Audi"/>
+</label>
+    MB<label>
+    <input type="radio" th:field="*{carBrand}" th:value="Mercedes-Benz"/>
+</label>
+    <br>
+    <br>
+    Foreign Language(s)
+    EN <input type="checkbox" th:field="*{languages}" th:value="English">
+    DE <input type="checkbox" th:field="*{languages}" th:value="Deutsch">
+    FR <input type="checkbox" th:field="*{languages}" th:value="French">
+    <br>
+    <br>
+    <p>Phone number: <label>
+        <input type="text" th:field="*{phoneNumber}" class="b2"/>
+        <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></td>
+    </label></p>
+    <br>
+    <br>
+    <p>Email: <label>
+        <input type="text" th:field="*{email}" class="b2"/>
+        <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+    </label></p>
+    <!--отображает саму кнопку submit-->
+    <input type="submit" class="b1">
+</form>
+
+</body>
+</html>
