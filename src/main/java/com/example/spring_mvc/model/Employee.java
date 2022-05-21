@@ -1,11 +1,15 @@
 package com.example.spring_mvc.model;
 
 import com.example.spring_mvc.validation.CheckEmail;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
+@Getter
+@Setter
 public class Employee {
 
     @Size(min = 2, message = "name must be min 2 symbols")
@@ -40,94 +44,6 @@ public class Employee {
         languagesList.put("English", "EN");
         languagesList.put("Deutsch", "DE");
         languagesList.put("French", "FR");
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
-
-    public Map<String, String> getDepartmentsList() {
-        return departmentsList;
-    }
-
-    public void setDepartmentsList(Map<String, String> departmentsList) {
-        this.departmentsList = departmentsList;
-    }
-
-    public String getCarBrand() {
-        return carBrand;
-    }
-
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
-    }
-
-    public Map<String, String> getCarBrandsList() {
-        return carBrandsList;
-    }
-
-    public void setCarBrandsList(Map<String, String> carBrandsList) {
-        this.carBrandsList = carBrandsList;
-    }
-
-    public String[] getLanguages() {
-        return languages;
-    }
-
-    public void setLanguages(String[] languages) {
-        this.languages = languages;
-    }
-
-    public Map<String, String> getLanguagesList() {
-        return languagesList;
-    }
-
-    public void setLanguagesList(Map<String, String> languagesList) {
-        this.languagesList = languagesList;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     @Override
